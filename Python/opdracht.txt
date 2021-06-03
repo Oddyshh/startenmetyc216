@@ -1,0 +1,8 @@
+maak een array met getallen
+2x of 3x
+
+losse functie die als argument een array krijgt
+
+functie print wel even getallen, niet oneven getallen
+
+return hoeveel oneven getallen

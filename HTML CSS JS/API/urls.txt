@@ -1,0 +1,8 @@
+base url: https://openlibrary.org
+
+boek url: https://openlibrary.org/isbn/9781857028898.json
+
+https://openlibrary.org/authors/OL27682A.json
+
+
+data.authors[0].key

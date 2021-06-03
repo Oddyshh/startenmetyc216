@@ -1,29 +1,51 @@
-async function fetchBooks(list) {
-    const theDom = document.getElementsByTagName("html");
-    console.log(theDom);
-    theDom[0].children[1].children[2].style.backgroundColor = "red";
+async function fetchBooks() {
     const bookData = document.getElementById("book-data");
 
-    const isbn = list[0];
+    const input = document.getElementById('isbn');
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            fetchBooks();
+        }
+    })
 
-    for (let i = 0; i < list.length; i++) {
-        const response = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
-        const data = await response.json();
-        console.log(data);
 
-        const name = data.title;
-        const nameElement = document.getElementById('name');
-        nameElement.innerText = name;
-        bookData.appendChild(nameElement);
-        
-        
-        const img = `http://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`
-        const imgElement = document.createElement('img');
-        imgElement.src = img;
-        bookData.appendChild(imgElement);
+
+    const response = await fetch(`https://openlibrary.org/isbn/${input.value}.json`);
+    const data = await response.json();
+    console.log(data);
+
+    const authorurl = data.authors[0].key;
+    const nameResponse = await fetch(`https://openlibrary.org${authorurl}.json`);
+    const authorData = await nameResponse.json();
+
+    const isbn10 = data.isbn_10;
+    const isbn10Element = document.getElementById('isbn-10');
+    isbn10Element.innerText = isbn10;
+
+    const isbn13 = data.isbn_13;
+    const isbn13Element = document.getElementById('isbn-13');
+    isbn13Element.innerText = isbn13;
+
+    const name = data.title;
+    const nameElement = document.getElementById('book-title');
+    nameElement.innerText = name;
+
+    const author = authorData.name;
+    const authorElement = document.getElementById('author');
+    authorElement.innerText = author;
+    
+
+    const numPages = data.number_of_pages;
+    const pagesElement = document.getElementById('num-pages');
+    pagesElement.innerText = numPages;
+    
+    
+    const img = `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&jscmd=details&format=json`
+    const imgElement = document.createElement('img');
+    imgElement.src = img;
+    //bookData.appendChild(imgElement);
     }
     
 
-}
-
-const result = fetchBooks(["9781857028898"]);
+const result = fetchBooks();

@@ -6,12 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Books</title>
     <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
     
 </head>
 <body>
     <h1 id="title">Search books by ISBN </h1>
     <input id="isbn" type="text" placeholder="Type in ISBN" />
     <button type="button" onclick="fetchBooks()">Search</button>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <td>ISBN-10</td>
+            <td>:</td>
+            <td id="isbn-10"></td>
+        </tr>
+        <tr>
+            <td>ISBN-13</td>
+            <td>:</td>
+            <td id="isbn-13"></td>
+        </tr>
+        <tr>
+            <td>Title</td>
+            <td>:</td>
+            <td id="book-title"></td>
+        </tr>
+        <tr>
+            <td>Author</td>
+            <td>:</td>
+            <td id="author"></td>
+        </tr>
+        <tr>
+            <td># of pages</td>
+            <td>:</td>
+            <td id="num-pages"></td>
+        </tr>
+
+    </table>
+    
     <h2 id="name"></h2>
     <div id="book-data"></div>
     

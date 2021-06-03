@@ -1,3 +1,7 @@
+https://openlibrary.org/developers/api
+https://openlibrary.org/dev/docs/api/books
+
+
 base url: https://openlibrary.org
 
 boek url: https://openlibrary.org/isbn/9781857028898.json

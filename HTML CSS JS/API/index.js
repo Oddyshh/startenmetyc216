@@ -1,19 +1,21 @@
+const input = document.getElementById('isbn');
+input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+    event.preventDefault();
+    fetchBooks();
+    }
+})
+
+
+
 async function fetchBooks() {
-    const bookData = document.getElementById("book-data");
 
-    const input = document.getElementById('isbn');
-    input.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-            fetchBooks();
-        }
-    })
+    const bookCover = document.getElementById('cover');
 
+    const isbn = input.value;
 
-
-    const response = await fetch(`https://openlibrary.org/isbn/${input.value}.json`);
+    const response = await fetch(`https://openlibrary.org/isbn/${isbn}.json`);
     const data = await response.json();
-    console.log(data);
 
     const authorurl = data.authors[0].key;
     const nameResponse = await fetch(`https://openlibrary.org${authorurl}.json`);
@@ -34,17 +36,16 @@ async function fetchBooks() {
     const author = authorData.name;
     const authorElement = document.getElementById('author');
     authorElement.innerText = author;
-    
 
     const numPages = data.number_of_pages;
     const pagesElement = document.getElementById('num-pages');
     pagesElement.innerText = numPages;
     
-    
-    const img = `https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&jscmd=details&format=json`
+    const img = `http://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`;
     const imgElement = document.createElement('img');
     imgElement.src = img;
-    //bookData.appendChild(imgElement);
+    bookCover.innerHTML = "";
+    bookCover.appendChild(imgElement);
     }
     
 

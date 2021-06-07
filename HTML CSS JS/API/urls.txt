@@ -10,3 +10,7 @@ https://openlibrary.org/authors/OL27682A.json
 
 
 data.authors[0].key
+
+test isbn: 
+9781857028898
+9780545069670

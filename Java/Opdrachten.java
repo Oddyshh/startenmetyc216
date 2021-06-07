@@ -2,10 +2,12 @@ import java.util.*;
 
 public class Opdrachten {
     public static void main(String[] args) {
-        Concatenation con = new Concatenation();
-        con.concatenate();
-        EsTellen hoeveel = new EsTellen();
-        hoeveel.Tellen("hottentottententententoonstelling");
+        //Concatenation con = new Concatenation();
+        //con.concatenate();
+        //EsTellen hoeveel = new EsTellen();
+        //hoeveel.Tellen("hottentottententententoonstelling");
+        ArrayTellen artel = new ArrayTellen();
+        System.out.println(artel.Tellen());
     }
 }
 
@@ -26,5 +28,16 @@ class EsTellen {
             }
         }
         System.out.println(count + " E's in " + string);
+    }
+}
+
+class ArrayTellen {
+    int count = 0;
+    int[] array = {1, 2, 3, 4, 5};
+    int Tellen() {
+        for (int i = 0; i < array.length; i++) {
+            count += array[i];
+        }
+        return count;
     }
 }

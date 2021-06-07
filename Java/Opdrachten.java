@@ -8,11 +8,14 @@ public class Opdrachten {
         //hoeveel.Tellen("hottentottententententoonstelling");
         //ArrayTellen artel = new ArrayTellen();
         //System.out.println(artel.Tellen());
-        int[] array = new int[10];
-        BubbleSort sort = new BubbleSort();
-        array = sort.RandomNumbers(array);
+        //int[] array = new int[10];
+        //BubbleSort sort = new BubbleSort();
+        //array = sort.RandomNumbers(array);
         //System.out.println(Arrays.toString(array));
-        sort.Sorteren(array);
+        //sort.Sorteren(array);
+        Auto auto = new Auto();
+        Monteur monteur = new Monteur();
+        monteur.repair(auto.fix, auto.onderdelen);
     }
 }
 
@@ -76,3 +79,24 @@ class BubbleSort {
         System.out.println("Sorted array: " + Arrays.toString(arr));
     }    
 }
+
+class Auto {
+    boolean[] fix = {true, true, true, true};
+    String[] onderdelen = {"Motor", "Deur", "Voorruit", "Uitlaat"};
+}
+
+class Monteur {
+    int kosten = 25;
+    int totaal = 0;
+    void repair(boolean[] fix, String[] onderdelen) {
+        for (int i = 0; i < fix.length; i++) {
+            if (fix[i] == true) {
+                totaal += kosten;
+                fix[i] = false;
+                System.out.println(onderdelen[i] + " is gemaakt voor €" + kosten);
+            }
+        }
+        System.out.println("Totale kosten: " + totaal);
+    }
+}
+

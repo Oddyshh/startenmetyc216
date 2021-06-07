@@ -6,8 +6,13 @@ public class Opdrachten {
         //con.concatenate();
         //EsTellen hoeveel = new EsTellen();
         //hoeveel.Tellen("hottentottententententoonstelling");
-        ArrayTellen artel = new ArrayTellen();
-        System.out.println(artel.Tellen());
+        //ArrayTellen artel = new ArrayTellen();
+        //System.out.println(artel.Tellen());
+        int[] array = new int[10];
+        BubbleSort sort = new BubbleSort();
+        array = sort.RandomNumbers(array);
+        //System.out.println(Arrays.toString(array));
+        sort.Sorteren(array);
     }
 }
 
@@ -40,4 +45,37 @@ class ArrayTellen {
         }
         return count;
     }
+}
+
+class BubbleSort {
+    Random rand = new Random();
+    
+    int[] RandomNumbers(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(100);
+        }
+        return arr;
+    }
+
+    int[] Swap(int[] arr, int index1, int index2) {
+        int temp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = temp;
+        return arr;
+    }
+
+    void Sorteren(int[] arr) {
+        System.out.println("Pre-sorted array: " + Arrays.toString(arr));
+        int itercount = 0;
+        for (int x = 0; x < arr.length; x++) {
+            for (int i = 0; i < arr.length - 1; i++) {
+                itercount += 1;
+                if (arr[i] > arr[i + 1]) {
+                    this.Swap(arr, i, i+1);
+                }
+            }
+        }
+        System.out.println("Itterations: " + itercount);
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }    
 }

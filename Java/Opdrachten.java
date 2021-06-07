@@ -13,9 +13,11 @@ public class Opdrachten {
         //array = sort.RandomNumbers(array);
         //System.out.println(Arrays.toString(array));
         //sort.Sorteren(array);
-        Auto auto = new Auto();
-        Monteur monteur = new Monteur();
-        monteur.repair(auto.fix, auto.onderdelen);
+        //Auto auto = new Auto();
+        //Monteur monteur = new Monteur();
+        //monteur.repair(auto.fix, auto.onderdelen);
+        SortString sortstring = new SortString();
+        sortstring.Sort();
     }
 }
 
@@ -100,3 +102,16 @@ class Monteur {
     }
 }
 
+class SortString {
+    Scanner scan = new Scanner(System.in);
+    
+    void Sort() {
+        System.out.print("Input text to sort: ");
+        String input = scan.nextLine();
+        char[] charArray = input.toCharArray();
+        Arrays.sort(charArray);
+        String sortedString = new String(charArray);
+        System.out.println("Unsorted input: " + input);
+        System.out.println("Sorted input: " + sortedString);
+    }
+}

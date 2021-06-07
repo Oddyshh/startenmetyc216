@@ -66,16 +66,13 @@ class BubbleSort {
 
     void Sorteren(int[] arr) {
         System.out.println("Pre-sorted array: " + Arrays.toString(arr));
-        int itercount = 0;
         for (int x = 0; x < arr.length; x++) {
             for (int i = 0; i < arr.length - 1; i++) {
-                itercount += 1;
                 if (arr[i] > arr[i + 1]) {
                     this.Swap(arr, i, i+1);
                 }
             }
         }
-        System.out.println("Itterations: " + itercount);
         System.out.println("Sorted array: " + Arrays.toString(arr));
     }    
 }

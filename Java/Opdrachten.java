@@ -121,7 +121,7 @@ class SortString {
 class Lingo {
     Scanner scan = new Scanner(System.in);
     String woord = "fiets";
-    String aantalLettersString;
+    String aantalLettersString = "";
     int aantalLetters;
 
     void aantalLetters() {
@@ -166,7 +166,6 @@ class Lingo {
                         resultArray[i] = '0';
                         resultWoord[i] = '_';
                     }
-                
                 }
                 System.out.println(Arrays.toString(resultArray));
                 System.out.println(Arrays.toString(resultWoord));

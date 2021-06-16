@@ -18,8 +18,12 @@ public class Opdrachten {
         // monteur.repair(auto.fix, auto.onderdelen);
         // SortString sortstring = new SortString();
         // sortstring.Sort();
-        Lingo lingo = new Lingo();
-        lingo.spelen();
+        // Lingo lingo = new Lingo();
+        // lingo.spelen();
+        Kapitein kapitein = new Kapitein();
+        Boot boot = new Boot();
+        Speedboot speedboot = new Speedboot();
+        kapitein.varen(speedboot);
     }
 }
 
@@ -175,5 +179,25 @@ class Lingo {
             }
         }
         System.out.println("Goedzo! Het woord was " + woord);
+    }
+}
+
+class Boot {
+    void starten() {
+        System.out.println("We gaan varen!");
+    }
+}
+
+class Speedboot extends Boot {
+    @Override
+    void starten() {
+        System.out.println("Ik zet mijn pet even af!");
+    }
+}
+
+class Kapitein {
+
+    void varen(Boot boot) {
+        boot.starten();
     }
 }

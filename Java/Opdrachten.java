@@ -24,6 +24,8 @@ public class Opdrachten {
         // Boot boot = new Boot();
         // Speedboot speedboot = new Speedboot();
         // kapitein.varen(speedboot);
+        Vakantie vakantie = new Vakantie();
+        vakantie.spelen();
     }
 }
 
@@ -199,5 +201,54 @@ class Kapitein {
 
     void varen(Boot boot) {
         boot.starten();
+    }
+}
+
+class Vakantie {
+    Scanner scan = new Scanner(System.in);
+    ArrayList<String> vakantieString = new ArrayList<String>();
+
+    Vakantie() {
+        vakantieString.add("Ik ga op vakantie en neem mee...");
+    }
+
+    String kiesWoord() {
+        String woordKeuze = scan.nextLine();
+        return woordKeuze;
+    }
+
+    boolean checkFirst() {
+        if (vakantieString.size() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    boolean checkSame(String kiesWoord) {
+        if (kiesWoord.charAt(0) == vakantieString.get(vakantieString.size() - 1).charAt(kiesWoord.length() - 1)) {
+            // hier gaat nog wat mis. bij tweede ronde index out of bounds
+            return true;
+        }
+        System.out.println("Helaas!");
+        return false;
+    }
+
+    void spelen() {
+        String kiesWoord;
+
+        if (this.checkFirst() == true) {
+            System.out.println(vakantieString);
+            kiesWoord = this.kiesWoord();
+
+        } else {
+            return;
+        }
+
+        while (this.checkSame(kiesWoord) == true) {
+            vakantieString.add(kiesWoord);
+            System.out.println(vakantieString);
+            kiesWoord = this.kiesWoord();
+        }
     }
 }

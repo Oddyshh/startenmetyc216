@@ -20,10 +20,10 @@ public class Opdrachten {
         // sortstring.Sort();
         // Lingo lingo = new Lingo();
         // lingo.spelen();
-        Kapitein kapitein = new Kapitein();
-        Boot boot = new Boot();
-        Speedboot speedboot = new Speedboot();
-        kapitein.varen(speedboot);
+        // Kapitein kapitein = new Kapitein();
+        // Boot boot = new Boot();
+        // Speedboot speedboot = new Speedboot();
+        // kapitein.varen(speedboot);
     }
 }
 
